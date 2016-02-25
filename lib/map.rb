@@ -22,10 +22,8 @@ class CampusMap
 		#@graph.rename_node(1000, "gzang")
 	end
 
-	def get_input(string)
-		print "Pick a #{string} location: "
-
-		return @graph.get_node_id(gets.chomp)
+	def get_node_id(name)
+		return @graph.get_node_id(name)
 	end
 
 	def solve(start_id, end_id)
