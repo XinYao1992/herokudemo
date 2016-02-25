@@ -1,14 +1,20 @@
-<h2>Hello World</h2>
+<h2>Welcome to Campus GPS</h2>
+
 <p>
-	The time now is: <%= Time.now%>
+	<form name="query" action="http://0.0.0.0:3000/welcome/index">
+	Start Location
+	<select name="start">
+		<option value="1059"><%=@notes[0]%></option>
+	</select><br>
+	Destination
+	<select name="end">
+		<option value="1060"><%=@notes[1]%></option>
+	</select><br>
+	<input type="submit" value="Search">
+</form>
+
+<p>
+	<%=@result%>
 </p>
 
-<p>
-	Number of Universes: <%= Universe.all.count%>
-</p>
-
-<h3>Yes, we are up to the clouds </h3>
-
-<p>
-	result is : <%= @txt.html_safe%>
 </p>

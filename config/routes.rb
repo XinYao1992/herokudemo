@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  get 'welcome/index'
   #get 'member/:id' => 'members#show'
 
   root 'welcome#index'
