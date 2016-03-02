@@ -6,6 +6,7 @@ class Customer < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_reader :password
   validate :password_must_be_present
+  after_destroy :ensure_an_admin_remains
 
   def Customer.authenticate(name, password)
     if customer = find_by_name(name)
@@ -35,6 +36,12 @@ class Customer < ActiveRecord::Base
 
   def generate_salt
     self.salt = self.object_id.to_s + rand.to_s
+  end
+
+  def ensure_an_admin_remains
+    if Customer.count.zero?
+      raise "Can't delete last user"
+    end
   end
 
 end
